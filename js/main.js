@@ -54,7 +54,7 @@ class Stack {
 function isPalindrome (str) {
   let stack = new Stack();
   if (typeof str !== 'string') {
-    throw new TypeError('The input should be string');
+    throw new TypeError('The input should be a string');
   }
   str = str.replace(/\s+/g, '');
   let counter = 0;
