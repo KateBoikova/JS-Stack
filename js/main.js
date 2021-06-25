@@ -54,24 +54,17 @@ class Stack {
 function isPalindrome (str) {
   let stack = new Stack();
   if (typeof str !== 'string') {
-    throw new TypeError('The input should be string');
+    throw new TypeError('The input should be a string');
   }
   str = str.replace(/\s+/g, '');
-  let counter = 0;
   for (const char of str) {
-    if (str.length % 2 !== 0 && counter === Math.floor(str.length / 2)) {
-      counter++;
-      continue;
+    stack.push(char);
+  } 
+  for (const char of str) {
+    if (char !== stack.pop()) {
+      return false;
     }
-    if (counter < str.length / 2) {
-      stack.push(char);
-    } else {
-      if (char !== stack.pop()) {
-        return false;
-      }
-    }
-    counter++;
-  }
+  } 
   return true;
 }
 
